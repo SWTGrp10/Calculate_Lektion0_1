@@ -7,6 +7,7 @@ namespace Calculate_Lektion0_1
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            Console.WriteLine("Test Trine");
             Calculate calculate = new Calculate();
 
             double add = calculate.Add(3, 6);
