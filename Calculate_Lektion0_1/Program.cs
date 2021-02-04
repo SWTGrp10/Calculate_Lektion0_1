@@ -8,6 +8,7 @@ namespace Calculate_Lektion0_1
         {
             Console.WriteLine("Hello World!");
             Calculate calculate = new Calculate();
+            Console.WriteLine("Emma is here");
 
             double add = calculate.Add(3, 6);
             if (add == 9)
