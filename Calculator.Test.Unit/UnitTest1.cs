@@ -65,5 +65,16 @@ namespace Calculator.Test.Unit
             //Assert
             Assert.That(result, Is.EqualTo(expected));
         }
+        [TestCase(7,6,1)]
+        [TestCase(20, 6, 14)]
+        [TestCase(4, 9, -5)]
+        public void Subtract_subtractaAndb_equaToExpected(double a, double b, double expected)
+        {
+            //Act 
+            double result = uut.Subtract(a, b);
+
+            //Assert
+            Assert.That(result, Is.EqualTo(expected));
+        }
     }
 }
