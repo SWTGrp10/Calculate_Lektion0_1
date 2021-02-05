@@ -1,3 +1,4 @@
+using System;
 using Calculate_Lektion0_1;
 using NUnit.Framework;
 
@@ -10,8 +11,9 @@ namespace Calculator.Test.Unit
         [SetUp]
         public void Setup()
         {
-            // Arange
+            // Arrange
             uut = new Calculate();
+            uut.Accumulator = 2;
         }
 
         [Test]
@@ -25,6 +27,16 @@ namespace Calculator.Test.Unit
         }
 
         [Test]
+        public void Add_AddAccumulatorAnd5_EqualTo7()
+        {
+            //Act
+            double result = uut.Add(5);
+
+            //Assert
+            Assert.That(result, Is.EqualTo(7));
+        }
+
+        [Test]
         public void Subtract_Subtract8And3_EqualTo5()
         {
             //Act 
@@ -33,6 +45,18 @@ namespace Calculator.Test.Unit
             //Assert
             Assert.That(result, Is.EqualTo(5));
         }
+
+
+        [Test]
+        public void Subtract_SubtractAccumulatorAnd1_EqualTo1()
+        {
+            //Act 
+            double result = uut.Subtract(1);
+
+            //Assert
+            Assert.That(result, Is.EqualTo(1));
+        }
+
 
         [Test]
         public void Multiply_Multiply3And3_EqualTo9()
@@ -45,6 +69,16 @@ namespace Calculator.Test.Unit
         }
 
         [Test]
+        public void Multiply_MultiplyAccumulatorAnd3_EqualTo6()
+        {
+            //Act 
+            double result = uut.Multiply(3);
+
+            //Assert
+            Assert.That(result, Is.EqualTo(6));
+        }
+
+        [Test]
         public void Power_Power2And3_EqualTo8()
         {
             //Act 
@@ -53,6 +87,18 @@ namespace Calculator.Test.Unit
             //Assert
             Assert.That(result, Is.EqualTo(8));
         }
+
+
+        [Test]
+        public void Power_PowerAccumulatorAnd3_EqualTo8()
+        {
+            //Act 
+            double result = uut.Power(3);
+
+            //Assert
+            Assert.That(result, Is.EqualTo(8));
+        }
+
 
         [TestCase(3,6,9)]
         [TestCase(5, 6, 11)]
@@ -75,6 +121,31 @@ namespace Calculator.Test.Unit
 
             //Assert
             Assert.That(result, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void divide_dividebynot0_DoesNotThrow()
+        {
+            Assert.DoesNotThrow(() => uut.Divide(300, 12));
+        }
+
+        [Test]
+        public void divide_divideby0_Throws()
+        {
+            Assert.Throws<DivideByZeroException>(() => uut.Divide(400, 0));
+        }
+
+
+        [Test]
+        public void divide_divideAccumulatorbynot0_DoesNotThrow()
+        {
+            Assert.DoesNotThrow(() => uut.Divide( 2));
+        }
+
+        [Test]
+        public void divide_divideAccumulatorby0_Throws()
+        {
+            Assert.Throws<DivideByZeroException>(() => uut.Divide( 0));
         }
     }
 }
