@@ -6,6 +6,12 @@ namespace Calculate_Lektion0_1
 {
     public class Calculate
     {
+        public double Accumulator { get; private set; }
+
+        public void Clear()
+        {
+            Accumulator = 0;
+        }
         public double Add(double a, double b)
         {
             return a + b;
