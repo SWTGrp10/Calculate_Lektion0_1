@@ -1,3 +1,4 @@
+using System;
 using Calculate_Lektion0_1;
 using NUnit.Framework;
 
@@ -75,6 +76,18 @@ namespace Calculator.Test.Unit
 
             //Assert
             Assert.That(result, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void divide_dividebynot0_DoesNotThrow()
+        {
+            Assert.DoesNotThrow(() => uut.Divide(300, 12));
+        }
+
+        [Test]
+        public void divide_divideby0_Throws()
+        {
+            Assert.Throws<DivideByZeroException>(() => uut.Divide(400, 0));
         }
     }
 }
