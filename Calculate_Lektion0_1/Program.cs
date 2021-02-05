@@ -21,7 +21,8 @@ namespace Calculate_Lektion0_1
                 Console.WriteLine("Der er ikke regnet rigtig");
             }
 
-
+            calculate.Multiply(4, 5);
+            calculate.Subtract(5, 1);
 
         }
     }
