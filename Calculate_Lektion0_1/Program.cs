@@ -10,6 +10,7 @@ namespace Calculate_Lektion0_1
             Console.WriteLine("Test Trine");
             Calculate calculate = new Calculate();
             Console.WriteLine("Emma is here");
+            Console.WriteLine("Malle is here");
 
             double add = calculate.Add(3, 6);
             if (add == 9)
