@@ -111,6 +111,21 @@ namespace Calculator.Test.Unit
             //Assert
             Assert.That(result, Is.EqualTo(expected));
         }
+
+        [TestCase(3, 6, 9)]
+        [TestCase(5, 6, 11)]
+        [TestCase(4, 9, 13)]
+        public void Add_AddAccumulator_EqualToExpected(double a, double b, double expected)
+        {
+            //Act
+            uut.Accumulator = a;
+            double result = uut.Add(b);
+
+            //Assert
+            Assert.That(result, Is.EqualTo(expected));
+        }
+
+
         [TestCase(7,6,1)]
         [TestCase(20, 6, 14)]
         [TestCase(4, 9, -5)]
@@ -118,6 +133,19 @@ namespace Calculator.Test.Unit
         {
             //Act 
             double result = uut.Subtract(a, b);
+
+            //Assert
+            Assert.That(result, Is.EqualTo(expected));
+        }
+
+        [TestCase(7, 6, 1)]
+        [TestCase(20, 6, 14)]
+        [TestCase(4, 9, -5)]
+        public void Subtract_subtractAccumulatorAndb_equaToExpected(double a, double b, double expected)
+        {
+            //Act 
+            uut.Accumulator = a;
+            double result = uut.Subtract(b);
 
             //Assert
             Assert.That(result, Is.EqualTo(expected));
@@ -135,6 +163,19 @@ namespace Calculator.Test.Unit
             Assert.That(result, Is.EqualTo(expected));
         }
 
+        [TestCase(10, 5, 2)]
+        [TestCase(20, 4, 5)]
+        [TestCase(30, 3, 10)]
+        public void divide_divideAccumulatorAndb_equaToExpected(double a, double b, double expected)
+        {
+            //Act 
+            uut.Accumulator = a;
+            double result = uut.Divide(b);
+
+            //Assert
+            Assert.That(result, Is.EqualTo(expected));
+        }
+
         [TestCase(2, 2, 4)]
         [TestCase(2, 3, 8)]
         [TestCase(2, 4, 16)]
@@ -142,6 +183,19 @@ namespace Calculator.Test.Unit
         {
             //Act 
             double result = uut.Power(a, b);
+
+            //Assert
+            Assert.That(result, Is.EqualTo(expected));
+        }
+
+        [TestCase(2, 2, 4)]
+        [TestCase(2, 3, 8)]
+        [TestCase(2, 4, 16)]
+        public void power_poweraAccumulatorAndb_equaToExpected(double a, double b, double expected)
+        {
+            //Act
+            uut.Accumulator = a;
+            double result = uut.Power(b);
 
             //Assert
             Assert.That(result, Is.EqualTo(expected));
@@ -170,6 +224,19 @@ namespace Calculator.Test.Unit
         public void divide_divideAccumulatorby0_Throws()
         {
             Assert.Throws<DivideByZeroException>(() => uut.Divide( 0));
+        }
+
+        [TestCase(-2,0)]
+        [TestCase(0,0)]
+        [TestCase(2,0)]
+        public void clear_clearAccumulator_Expected0(double a, double b)
+        {
+            //Act
+            uut.Accumulator = a;
+            uut.Clear();
+
+            //Assert
+            Assert.That(uut.Accumulator, Is.EqualTo(b));
         }
     }
 }
