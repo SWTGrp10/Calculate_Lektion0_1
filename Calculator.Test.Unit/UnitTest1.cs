@@ -123,6 +123,30 @@ namespace Calculator.Test.Unit
             Assert.That(result, Is.EqualTo(expected));
         }
 
+        [TestCase(10, 5, 2)]
+        [TestCase(20, 4, 5)]
+        [TestCase(30, 3, 10)]
+        public void divide_divideaAndb_equaToExpected(double a, double b, double expected)
+        {
+            //Act 
+            double result = uut.Divide(a, b);
+
+            //Assert
+            Assert.That(result, Is.EqualTo(expected));
+        }
+
+        [TestCase(2, 2, 4)]
+        [TestCase(2, 3, 8)]
+        [TestCase(2, 4, 16)]
+        public void power_poweraAndb_equaToExpected(double a, double b, double expected)
+        {
+            //Act 
+            double result = uut.Power(a, b);
+
+            //Assert
+            Assert.That(result, Is.EqualTo(expected));
+        }
+
         [Test]
         public void divide_dividebynot0_DoesNotThrow()
         {
